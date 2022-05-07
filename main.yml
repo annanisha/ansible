@@ -21,3 +21,12 @@
           name: docker
           state: restarted
           enabled: true
+
+     - name: "create container"
+       docker_container:
+          name: sample
+          image: httpd:latest
+          recreate: true
+          state: started
+          ports:
+            - "80:80"
