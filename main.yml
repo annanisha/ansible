@@ -1,0 +1,17 @@
+---
+  - name: "Install docker and create a container"
+    become: true
+    hosts: new
+    tasks:
+
+      - name: "Install docker"
+        yum:
+          name:
+            - docker
+            - python2-pip
+          state: latest
+
+      - name: "Installing docker client"
+        pip:
+          name: docker-py
+          state: present
